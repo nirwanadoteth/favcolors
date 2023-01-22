@@ -22,5 +22,5 @@ if (
 ) {
     alert("This website is only for desktop. Please use desktop.");
     window.location.href =
-        "https://10122222.github.io/favcolors/mobile.html";
+        "https://10122222.github.io/favcolors/content/mobile.html";
 }
