@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <link rel="stylesheet" href="w3.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="assets/css/w3.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -16,7 +16,7 @@
     <body>
         <div class="w3-container w3-animate-top w3-center">
             <img
-                src="favcolors.png"
+                src="assets/images/favcolors.png"
                 class="w3-image"
                 style="
                     position: absolute;
@@ -375,34 +375,6 @@
             </blockquote>
         </div>
 
-        <script>
-            function openWarna(namawarna) {
-                var i;
-                var x = document.getElementsByClassName("warna");
-                for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                }
-                document.getElementById(namawarna).style.display = "block";
-            }
-
-            let docTitle = document.title;
-            window.addEventListener("blur", function () {
-                document.title = "Come back :(";
-            });
-            window.addEventListener("focus", function () {
-                document.title = docTitle;
-            });
-
-            <!--make this web only compatible on desktop-->
-            if (
-                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                    navigator.userAgent
-                )
-            ) {
-                alert("This website is only for desktop. Please use desktop.");
-                window.location.href =
-                    "https://10122222.github.io/favcolors/mobile.html";
-            }
-        </script>
+        <script src="assets/js/scripts.js"></script>
     </body>
 </html>
