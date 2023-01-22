@@ -20,6 +20,11 @@ button {
     font-weight: bold;
 }
 
+img.socialIcon {
+    width: 30px;
+    height: 30px;
+}
+
 .rainbow {
     width: 100%;
     height: 38.5px;
