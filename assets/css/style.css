@@ -22,7 +22,7 @@ button {
 
 ul {
     display: flex;
-    gap: 3.55%;
+    gap: 4.45%;
 }
 
 ul li {
@@ -97,4 +97,11 @@ ul:hover li button:not(:hover) {
     border-right: 1px solid #30edf4;
     width: calc(100%);
     height: calc(100%);
+}
+
+/* If the screen size is 600px wide or less, hide the element */
+@media only screen and (max-width: 768px) {
+    * {
+        display: none;
+    }
 }
