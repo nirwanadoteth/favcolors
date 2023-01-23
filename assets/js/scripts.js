@@ -14,3 +14,13 @@ window.addEventListener("blur", function () {
 window.addEventListener("focus", function () {
     document.title = docTitle;
 });
+
+if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+    )
+) {
+    alert("This website is only for desktop. Are you sure want to continue?");
+    window.location.href =
+        "https://10122222.github.io/favcolors/content/mobile.html";
+}

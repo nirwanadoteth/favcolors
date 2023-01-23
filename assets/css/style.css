@@ -98,10 +98,3 @@ ul:hover li button:not(:hover) {
     width: calc(100%);
     height: calc(100%);
 }
-
-/* If the screen size is 600px wide or less, hide the element */
-@media only screen and (max-width: 768px) {
-    * {
-        display: none;
-    }
-}
