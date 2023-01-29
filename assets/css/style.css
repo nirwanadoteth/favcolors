@@ -7,36 +7,53 @@ body {
     background-color: #252525;
 }
 
-header img.banner {
+.banner {
+    height: 35vh;
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    height: 35%;
+}
+
+nav {
+    padding-top: 32.89vh;
 }
 
 header,
 nav,
-article {
+section,
+footer {
     animation: opac 0.8s;
 }
 
-article {
+section {
     text-align: center;
+    margin-top: -2.11vh;
 }
 
-footer a img.icon {
+.color-img {
+    display: float;
+    float: left;
+    width: 25%;
+    height: 25%;
+    border-radius: 5%;
+    border: #ffff 5px solid;
+    margin-right: 10px;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+}
+
+.icon {
     width: 30px;
     height: 30px;
-}
-
-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 blockquote {
@@ -136,4 +153,63 @@ ul:hover li button:not(:hover) {
     border-right: 1px solid #30edf4;
     width: calc(100%);
     height: calc(100%);
+}
+
+@media only screen and (max-width: 600px) and (min-width: 350px) {
+    .banner {
+        height: 25vh;
+    }
+    nav {
+        padding-top: 23.5vh;
+    }
+
+    section {
+        margin-top: 0;
+    }
+
+    footer {
+        bottom: 1vh;
+    }
+
+    ul {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(6, auto);
+        text-align: center;
+        font-size: 0.7rem;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    blockquote {
+        font-size: 0.8rem;
+        text-align: justify;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    table {
+        font-size: 0.8rem;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    .icon {
+        width: 12%;
+        height: 12%;
+        margin-top: -20px;
+    }
 }
