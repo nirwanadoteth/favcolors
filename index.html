@@ -25,7 +25,8 @@
         </header>
 
         <nav>
-            <ul>
+            <!-- Desktop/Tablet Navigation -->
+            <ul class="desktop-nav">
                 <li>
                     <button class="btn" onclick="openWarna('Home')">
                         Home
@@ -85,6 +86,28 @@
                     </button>
                 </li>
             </ul>
+
+            <!-- Mobile Dropdown Navigation -->
+            <div class="mobile-nav">
+                <button class="dropdown-toggle" onclick="toggleMobileNav()">
+                    <span class="dropdown-text">Navigate</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="dropdown-menu" id="mobileDropdown">
+                    <button class="dropdown-item" onclick="selectMobileOption('Home')">Home</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Blue')">Blue</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Red')">Red</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Purple')">Purple</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Green')">Green</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Black')">Black</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('White')">White</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Yellow')">Yellow</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Pink')">Pink</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Orange')">Orange</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Silver')">Silver</button>
+                    <button class="dropdown-item" onclick="selectMobileOption('Profile')">Profile</button>
+                </div>
+            </div>
         </nav>
         <main>
             <section id="Home" class="warna" style="display: block">
