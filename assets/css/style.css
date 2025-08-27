@@ -4,13 +4,29 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2a2a2a;
+    --accent-color: #30edf4;
+    --accent-hover: #1ac7d1;
+    --text-primary: #f5f5f5;
+    --text-secondary: #b0b0b0;
+    --card-bg: #333333;
+    --border-radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
 * {
-    color: whitesmoke;
+    color: var(--text-primary);
 }
 
 body {
-    font-family: "Inter", serif;
-    background-color: #252525;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
 .banner {
@@ -24,6 +40,10 @@ body {
 
 nav {
     padding-top: 32.89vh;
+    padding-bottom: 2rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header,
@@ -35,44 +55,185 @@ footer {
 
 section {
     text-align: center;
-    margin-top: -2.11vh;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+}
+
+/* Color-specific backgrounds */
+section#Blue {
+    background: linear-gradient(135deg, #1e3a8a 0%, var(--card-bg) 100%);
+}
+
+section#Red {
+    background: linear-gradient(135deg, #7f1d1d 0%, var(--card-bg) 100%);
+}
+
+section#Purple {
+    background: linear-gradient(135deg, #581c87 0%, var(--card-bg) 100%);
+}
+
+section#Green {
+    background: linear-gradient(135deg, #14532d 0%, var(--card-bg) 100%);
+}
+
+section#Black {
+    background: linear-gradient(135deg, #000000 0%, var(--card-bg) 100%);
+}
+
+section#White {
+    background: linear-gradient(135deg, #737373 0%, var(--card-bg) 100%);
+}
+
+section#Yellow {
+    background: linear-gradient(135deg, #a16207 0%, var(--card-bg) 100%);
+}
+
+section#Pink {
+    background: linear-gradient(135deg, #be185d 0%, var(--card-bg) 100%);
+}
+
+section#Orange {
+    background: linear-gradient(135deg, #c2410c 0%, var(--card-bg) 100%);
+}
+
+section#Silver {
+    background: linear-gradient(135deg, #6b7280 0%, var(--card-bg) 100%);
+}
+
+section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+section h3 {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-weight: 400;
 }
 
 .color-img {
-    display: float;
     float: left;
-    width: 25%;
-    height: 25%;
-    border-radius: 5%;
-    border: #ffff 5px solid;
-    margin-right: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--accent-color);
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.color-img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
 }
 
 footer {
     text-align: center;
     position: fixed;
     left: 50%;
-    bottom: 0.5vh;
+    bottom: 1rem;
     transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
+    background: var(--card-bg);
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+footer h6 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 .icon {
-    width: 30px;
-    height: 30px;
-    margin-top: -12%;
+    width: 28px;
+    height: 28px;
+    margin: 0 0.5rem;
+    transition: var(--transition);
+    filter: grayscale(1) brightness(0.8);
+}
+
+.icon:hover {
+    filter: grayscale(0) brightness(1);
+    transform: translateY(-2px);
 }
 
 blockquote {
     text-align: justify;
-    padding-left: 25vw;
-    padding-right: 25vw;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 1rem 0;
+    position: relative;
+    min-height: 200px;
 }
 
 table {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 400px;
+}
+
+table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+table td:first-child {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+table tr:last-child td {
+    border-bottom: none;
 }
 
 h1,
@@ -83,9 +244,13 @@ button {
 ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 ul li {
@@ -93,74 +258,114 @@ ul li {
 }
 
 ul li button {
-    font-family: "Chivo Mono", monospace;
-    text-transform: uppercase;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    padding: 10px;
-    transition: 0.5s ease;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--text-secondary);
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-width: 80px;
+    font-size: 0.9rem;
 }
 
-ul:hover li button {
-    color: #30edf4;
-    text-decoration: underline solid #30edf4 1px;
-    text-underline-offset: 10%;
+ul li button:hover {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-ul:hover li button:not(:hover) {
-    color: #fff;
-    text-decoration: none;
-    opacity: 0.3;
-    filter: blur(1px);
+ul li button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
-@media only screen and (max-width: 600px) and (min-width: 350px) {
+ul li button.active {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow);
+}
+
+@media only screen and (max-width: 768px) {
     .banner {
         height: 25vh;
     }
+    
     nav {
         padding-top: 23.5vh;
-    }
-
-    section {
-        margin-top: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     ul {
         display: grid;
-        width: 100%;
-        grid-template-columns: repeat(6, auto);
-        text-align: center;
-        font-size: 0.7rem;
-        padding-left: 1%;
-        padding-right: 1%;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    ul li button {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        min-width: auto;
+    }
+
+    section {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    section h1 {
+        font-size: 1.8rem;
+    }
+
+    section h3 {
+        font-size: 1rem;
     }
 
     blockquote {
-        font-size: 0.8rem;
-        padding-left: 0;
-        padding-right: 0;
+        font-size: 0.9rem;
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .color-img {
+        width: 100px;
+        height: 100px;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
     }
 
     table {
         font-size: 0.8rem;
+        min-width: 300px;
+        margin: 1rem auto;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    table td {
+        padding: 0.5rem;
     }
 
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    h6 {
-        font-size: 1rem;
+    footer {
+        position: relative;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        transform: none;
+        left: auto;
+        bottom: auto;
     }
 
     .icon {
-        width: 12%;
-        height: 12%;
+        width: 24px;
+        height: 24px;
+        margin: 0 0.3rem;
     }
 }
