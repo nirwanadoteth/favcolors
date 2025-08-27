@@ -294,6 +294,69 @@ ul li button.active {
     box-shadow: var(--shadow);
 }
 
+/* Color-specific button hover and active states */
+ul li button[onclick*="'Blue'"]:hover,
+ul li button[onclick*="'Blue'"].active {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border-color: #3b82f6;
+}
+
+ul li button[onclick*="'Red'"]:hover,
+ul li button[onclick*="'Red'"].active {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border-color: #ef4444;
+}
+
+ul li button[onclick*="'Purple'"]:hover,
+ul li button[onclick*="'Purple'"].active {
+    background: linear-gradient(135deg, #a855f7, #7c3aed);
+    border-color: #a855f7;
+}
+
+ul li button[onclick*="'Green'"]:hover,
+ul li button[onclick*="'Green'"].active {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-color: #22c55e;
+}
+
+ul li button[onclick*="'Black'"]:hover,
+ul li button[onclick*="'Black'"].active {
+    background: linear-gradient(135deg, #374151, #111827);
+    border-color: #374151;
+}
+
+ul li button[onclick*="'White'"]:hover,
+ul li button[onclick*="'White'"].active {
+    background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+    border-color: #e5e7eb;
+    color: #1f2937;
+}
+
+ul li button[onclick*="'Yellow'"]:hover,
+ul li button[onclick*="'Yellow'"].active {
+    background: linear-gradient(135deg, #eab308, #ca8a04);
+    border-color: #eab308;
+    color: #1f2937;
+}
+
+ul li button[onclick*="'Pink'"]:hover,
+ul li button[onclick*="'Pink'"].active {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    border-color: #ec4899;
+}
+
+ul li button[onclick*="'Orange'"]:hover,
+ul li button[onclick*="'Orange'"].active {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border-color: #f97316;
+}
+
+ul li button[onclick*="'Silver'"]:hover,
+ul li button[onclick*="'Silver'"].active {
+    background: linear-gradient(135deg, #9ca3af, #6b7280);
+    border-color: #9ca3af;
+}
+
 @media only screen and (max-width: 768px) {
     .banner {
         height: 25vh;
