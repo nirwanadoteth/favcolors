@@ -24,7 +24,6 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
 │   └── images/
 │       ├── colors/         # Color images (10 PNG files: blue.png, red.png, etc.)
 │       ├── socials/        # Social media icons (4 SVG files)
-│       ├── favcolors.png   # Main banner image
 │       └── icon.png        # Favicon
 └── LICENSE                 # Creative Commons Attribution 4.0 license
 ```
@@ -32,7 +31,7 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
 ## Validation
 
 ### Always Test These Scenarios After Making Changes
-1. **Navigation Test**: 
+1. **Navigation Test**:
    - Start local server: `python3 -m http.server 8000`
    - Open browser to `http://localhost:8000`
    - Click each color button (Blue, Red, Purple, Green, Black, White, Yellow, Pink, Orange, Silver)
@@ -46,7 +45,6 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
    - Verify text remains readable and images scale properly
 
 3. **Image Loading Test**:
-   - Verify banner image loads at top
    - Verify each color page shows its corresponding color image
    - Verify social media icons display in footer
 
@@ -72,7 +70,6 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
 ### Image Management
 - **Color Images**: Place in `assets/images/colors/` (PNG format, should be square)
 - **Icons**: Social media icons in `assets/images/socials/` (SVG format)
-- **Banner**: Main banner is `assets/images/favcolors.png` (large PNG, 1507KB)
 
 ## Technology Stack
 - **Frontend**: Pure HTML5, CSS3, JavaScript (ES5)
@@ -85,7 +82,6 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
 - **All content is in a single HTML file** - no routing or multiple pages
 - **JavaScript uses simple DOM manipulation** - no frameworks or libraries
 - **Responsive design uses CSS media queries** - mobile-friendly layout
-- **Images are optimized but large** - banner image is 1.5MB
 
 ## Timing Expectations
 - **Server startup**: Under 2 seconds
