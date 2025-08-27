@@ -68,6 +68,7 @@ section {
     position: relative;
     overflow: hidden;
     animation: fadeIn 0.5s ease-in-out;
+    z-index: 1;
 }
 
 @keyframes fadeIn {
@@ -299,6 +300,7 @@ ul.desktop-nav li button.active {
     max-width: 300px;
     margin: 0 auto;
     position: relative;
+    z-index: 10000;
 }
 
 .dropdown-toggle {
@@ -342,15 +344,17 @@ ul.desktop-nav li button.active {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
-    z-index: 1000;
+    z-index: 99999;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
     margin-top: 0.5rem;
+    pointer-events: auto;
 }
 
 .dropdown-menu.show {
     max-height: 400px;
+    pointer-events: auto;
 }
 
 .dropdown-item {
@@ -366,6 +370,7 @@ ul.desktop-nav li button.active {
     width: 100%;
     text-align: left;
     font-size: 0.9rem;
+    pointer-events: auto;
 }
 
 .dropdown-item:hover {
@@ -441,7 +446,14 @@ ul.desktop-nav li button[onclick*="'Silver'"].active {
     border-color: #9ca3af;
 }
 
-/* Color-specific dropdown item styles */
+/* Disable pointer events on main content when mobile dropdown is open */
+body.mobile-dropdown-open main {
+    pointer-events: none;
+}
+
+body.mobile-dropdown-open .mobile-nav {
+    pointer-events: auto;
+}
 .dropdown-item[onclick*="'Blue'"].active,
 .dropdown-item[onclick*="'Blue'"]:hover {
     background: linear-gradient(135deg, #3b82f6, #1d4ed8);

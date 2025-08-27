@@ -47,9 +47,11 @@ function toggleMobileNav() {
     if (dropdown.classList.contains('show')) {
         dropdown.classList.remove('show');
         toggle.classList.remove('active');
+        document.body.classList.remove('mobile-dropdown-open');
     } else {
         dropdown.classList.add('show');
         toggle.classList.add('active');
+        document.body.classList.add('mobile-dropdown-open');
     }
 }
 
@@ -59,6 +61,7 @@ function selectMobileOption(option) {
     var toggle = document.querySelector('.dropdown-toggle');
     dropdown.classList.remove('show');
     toggle.classList.remove('active');
+    document.body.classList.remove('mobile-dropdown-open');
     
     // Call the existing function to change the section
     openWarna(option);
@@ -72,6 +75,7 @@ document.addEventListener('click', function(event) {
     if (mobileNav && dropdown && !mobileNav.contains(event.target)) {
         dropdown.classList.remove('show');
         document.querySelector('.dropdown-toggle').classList.remove('active');
+        document.body.classList.remove('mobile-dropdown-open');
     }
 });
 
