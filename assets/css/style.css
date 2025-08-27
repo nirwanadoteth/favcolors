@@ -168,16 +168,15 @@ section h3 {
 
 footer {
     text-align: center;
-    position: fixed;
-    left: 50%;
-    bottom: 1rem;
-    transform: translate(-50%, 0%);
     background: var(--card-bg);
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    max-width: 1000px;
+    margin: 2rem auto;
+    margin-bottom: 3rem;
 }
 
 footer h6 {
@@ -418,17 +417,85 @@ ul li button[onclick*="'Silver'"].active {
     }
 
     footer {
-        position: relative;
-        margin-top: 4rem;
+        margin: 1rem;
         margin-bottom: 2rem;
-        transform: none;
-        left: auto;
-        bottom: auto;
+        padding: 1rem 1.5rem;
     }
 
     .icon {
         width: 24px;
         height: 24px;
         margin: 0 0.3rem;
+    }
+}
+
+/* Tablet responsive design */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .banner {
+        height: 30vh;
+    }
+    
+    nav {
+        padding-top: 28vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    ul {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    ul li button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    section {
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .color-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    footer {
+        margin: 1.5rem auto;
+        padding: 1.25rem 2rem;
+    }
+}
+
+/* Large desktop improvements */
+@media only screen and (min-width: 1200px) {
+    nav {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    ul {
+        gap: 1rem;
+    }
+
+    ul li button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        min-width: 100px;
+    }
+
+    section {
+        padding: 3rem;
+    }
+
+    .color-img {
+        width: 180px;
+        height: 180px;
+        margin-right: 2.5rem;
+    }
+
+    blockquote {
+        font-size: 1.2rem;
+        padding: 2rem;
     }
 }
