@@ -19,7 +19,7 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 │   ├── css/
 │   │   └── style.css       # Custom styles, responsive layout, and JS-free navigation
 │   └── images/
-│       └── colors/         # Color images (10 PNG files: blue.png, red.png, etc.)
+│       └── colors/         # Color images (PNG files: blue.png, red.png, etc.)
 │       ├── socials/        # Social media icons (4 SVG files)
 │       └── icon.png        # Favicon
 └── LICENSE                 # Creative Commons Attribution 4.0 license
@@ -28,7 +28,7 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 ## Validation
 
 ### Always Test These Scenarios After Making Changes
-1. **Navigation Test**:
+1. **Navigation Test** (modern browsers with CSS :has support):
    - Start local server: `python3 -m http.server 8000`
    - Open browser to `http://localhost:8000`
    - Click each color link (Blue, Red, Purple, Green, Black, White, Yellow, Pink, Orange, Silver)
@@ -49,7 +49,7 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 
 ### Manual Validation Requirements
 - **ALWAYS test the complete user flow** after making any changes
-- **ALWAYS verify all 12 navigation links work** (10 colors + Profile + Home)
+- **ALWAYS verify all navigation links work** (Home, Profile, and all color links)
 - **ALWAYS check both desktop and mobile responsive layouts**
 - Take a screenshot of any modified color pages to verify visual changes
 
