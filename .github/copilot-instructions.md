@@ -2,7 +2,7 @@
 
 **Always follow these instructions first. Only search for additional information or run bash commands if the information here is incomplete or found to be in error.**
 
-Favorite Colors is a static HTML/CSS/JavaScript website that showcases information about different colors and their psychological meanings. The site features an interactive single-page application with navigation between color sections.
+Favorite Colors is a static HTML/CSS website (no JavaScript) that showcases information about different colors and their psychological meanings. It’s a single-page website that uses anchor links and CSS (:target with fallbacks) to navigate between color sections; direct links with hashes (e.g., #Red) are supported, and when no hash is present the default view is Home.
 
 ## Working Effectively
 
@@ -17,14 +17,10 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
 ├── index.html              # Main HTML file containing all content and structure
 ├── assets/
 │   ├── css/
-│   │   ├── style.css       # Custom styles and responsive design
-│   │   └── w3.css          # W3.CSS framework (29KB, do not modify)
-│   ├── js/
-│   │   └── scripts.js      # Navigation logic and tab functionality
+│   │   └── style.css       # Custom styles, responsive layout, and JS-free navigation
 │   └── images/
-│       ├── colors/         # Color images (10 PNG files: blue.png, red.png, etc.)
+│       └── colors/         # Color images (PNG files: blue.png, red.png, etc.)
 │       ├── socials/        # Social media icons (4 SVG files)
-│       ├── favcolors.png   # Main banner image
 │       └── icon.png        # Favicon
 └── LICENSE                 # Creative Commons Attribution 4.0 license
 ```
@@ -32,60 +28,71 @@ Favorite Colors is a static HTML/CSS/JavaScript website that showcases informati
 ## Validation
 
 ### Always Test These Scenarios After Making Changes
-1. **Navigation Test**: 
+1. **Navigation Test** (modern browsers with CSS :has support; without :has, labels/active states may not update but navigation still works):
    - Start local server: `python3 -m http.server 8000`
    - Open browser to `http://localhost:8000`
-   - Click each color button (Blue, Red, Purple, Green, Black, White, Yellow, Pink, Orange, Silver)
+   - Click each color link (Blue, Red, Purple, Green, Black, White, Yellow, Pink, Orange, Silver)
+   - Open a section directly via URL hash (e.g., `http://localhost:8000/#Red`) and verify the correct section is shown on first load
    - Verify each section displays correctly with color image and description
    - Test the Profile section displays student information table
-   - Test Home button returns to welcome page
+   - Test Home link returns to the welcome page
+   - Use browser Back/Forward after navigating between sections and verify the active state and content remain in sync
+   - Confirm the active state highlights only the current section in both desktop and mobile nav (CSS-only; no aria-current scripting)
 
 2. **Responsive Design Test**:
    - Resize browser window to mobile width (< 600px)
-   - Verify navigation buttons stack in grid layout
+   - Verify desktop navigation hides and mobile dropdown (<details>/<summary>) appears
+   - Verify the mobile summary label updates to the current section name (requires :has; on older browsers, the label remains “Home”—ensure a default `<span data-name="Home">Home</span>` is present)
    - Verify text remains readable and images scale properly
 
 3. **Image Loading Test**:
-   - Verify banner image loads at top
    - Verify each color page shows its corresponding color image
    - Verify social media icons display in footer
 
 ### Manual Validation Requirements
 - **ALWAYS test the complete user flow** after making any changes
-- **ALWAYS verify all 11 navigation buttons work** (10 colors + Profile + Home)
+- **ALWAYS verify all navigation links work** (Home, Profile, and all color links)
 - **ALWAYS check both desktop and mobile responsive layouts**
 - Take a screenshot of any modified color pages to verify visual changes
 
 ## Common Tasks
 
 ### Adding a New Color Page
-1. Add new `<section>` in `index.html` with `id="NewColor"` and `style="display: none"`
-2. Add corresponding `<button onclick="openWarna('NewColor')">` in navigation list
-3. Add color image to `assets/images/colors/newcolor.png`
-4. Test navigation to new section works
+1. Add a new `<section>` in `index.html` with `id="NewColor"` and class `warna` (no inline style):
+   - Example: `<section id="Teal" class="warna"> ... </section>`
+2. Add corresponding nav links:
+   - Desktop: add `<li><a class="btn" href="#NewColor">NewColor</a></li>` inside the desktop nav list
+   - Mobile: add `<a class="dropdown-item" href="#NewColor">NewColor</a>` inside the dropdown menu
+   - Mobile summary label: add `<span data-name="NewColor">NewColor</span>` inside the summary's `.dropdown-text`
+   - Note: IDs and hrefs are case-sensitive—ensure `id`, `href`, and any `data-name` values match exactly (e.g., Teal).
+3. Add the color image to `assets/images/colors/newcolor.png` (square PNG recommended)
+4. Optional: Add gradient styles in `assets/css/style.css` for hover/active states matching other colors (desktop `.btn`, mobile `.dropdown-item`, and active state rules)
+5. Test navigation to the new section works on desktop and mobile; verify the summary label updates
+6. Add active-state highlight rules mirroring other colors:
+   - `body:has(#NewColor:target) ul.desktop-nav li a.btn[href="#NewColor"], ... { ... }`
+   - Also add a minimal `#NewColor:target { ... }` rule so the active section remains visually distinct in browsers without `:has`.
 
 ### Modifying Existing Content
 1. **Color Descriptions**: Edit the `<blockquote>` content within each color section in `index.html`
-2. **Styling Changes**: Modify `assets/css/style.css` (never edit `w3.css`)
-3. **Navigation Logic**: Edit `assets/js/scripts.js` if changing tab behavior
+2. **Styling Changes**: Modify `assets/css/style.css` (custom CSS only; no framework files)
+3. **Navigation**: Navigation is CSS-only; update anchors in `index.html` and matching selectors in `assets/css/style.css` if changing tab behavior
 
 ### Image Management
 - **Color Images**: Place in `assets/images/colors/` (PNG format, should be square)
 - **Icons**: Social media icons in `assets/images/socials/` (SVG format)
-- **Banner**: Main banner is `assets/images/favcolors.png` (large PNG, 1507KB)
 
 ## Technology Stack
-- **Frontend**: Pure HTML5, CSS3, JavaScript (ES5)
-- **CSS Framework**: W3.CSS 4.15 + custom styles
+- **Frontend**: Pure HTML5 and CSS3 (JS-free)
+- **CSS Framework**: None (custom styles only)
+- **Navigation**: Anchor links with CSS `:target` and responsive `<details>/<summary>` dropdown. Active link highlighting is handled purely in CSS (for example, via `:target` and container `:has(...)` rules). Do not rely on dynamic `aria-current` updates because there's no JavaScript.
 - **No Build Process**: Static files served directly
 - **No Dependencies**: No package.json, npm, or build tools required
 
 ## Important Notes
-- **No build or compilation step required** - changes are immediately visible
+- **No JavaScript required** - navigation and theming are implemented in CSS
 - **All content is in a single HTML file** - no routing or multiple pages
-- **JavaScript uses simple DOM manipulation** - no frameworks or libraries
+- **Navigation is driven by anchors + CSS `:target`**; mobile dropdown uses native `<details>/<summary>`. Remove any static `aria-current` attributes from markup and rely on CSS-only highlighting for accessibility/fallbacks.
 - **Responsive design uses CSS media queries** - mobile-friendly layout
-- **Images are optimized but large** - banner image is 1.5MB
 
 ## Timing Expectations
 - **Server startup**: Under 2 seconds
