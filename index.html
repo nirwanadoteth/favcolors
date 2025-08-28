@@ -7,10 +7,17 @@
     <meta
       name="description"
       content="Favorite Colors is a simple, responsive single-page site showcasing popular colors and their psychological meanings, with quick navigation for Blue, Red, Purple, Green, Black, White, Yellow, Pink, Orange, and Silver." />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
     <link
+      rel="preload"
       href="https://fonts.bunny.net/css?family=nunito-sans:400,500,600,700&display=swap"
-      rel="stylesheet" />
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.bunny.net/css?family=nunito-sans:400,500,600,700&display=swap" />
+    </noscript>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="icon" type="image/png" href="assets/images/icon.png" />
     <title>Favorite Colors</title>
@@ -69,7 +76,8 @@
       <section id="Blue" class="warna" tabindex="-1">
         <h1>Blue</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/blue.png"
             alt="Blue"
             class="color-img" />
@@ -87,7 +95,11 @@
       <section id="Red" class="warna" tabindex="-1">
         <h1>Red</h1>
         <blockquote>
-          <img loading="lazy" src="assets/images/colors/red.png" alt="Red" class="color-img" />
+          <img
+            loading="lazy"
+            src="assets/images/colors/red.png"
+            alt="Red"
+            class="color-img" />
           Red has meanings on two different ends of the human emotional
           spectrum. It can symbolize passion and strength. There’s a reason why
           everything is red on Valentine’s Day — the color of love inspires
@@ -102,7 +114,8 @@
       <section id="Purple" class="warna" tabindex="-1">
         <h1>Purple</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/purple.png"
             alt="Purple"
             class="color-img" />
@@ -121,7 +134,8 @@
       <section id="Green" class="warna" tabindex="-1">
         <h1>Green</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/green.png"
             alt="Green"
             class="color-img" />
@@ -138,7 +152,8 @@
       <section id="Black" class="warna" tabindex="-1">
         <h1>Black</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/black.png"
             alt="Black"
             class="color-img" />
@@ -152,7 +167,8 @@
       <section id="White" class="warna" tabindex="-1">
         <h1>White</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/white.png"
             alt="White"
             class="color-img" />
@@ -167,7 +183,8 @@
       <section id="Yellow" class="warna" tabindex="-1">
         <h1>Yellow</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/yellow.png"
             alt="Yellow"
             class="color-img" />
@@ -186,7 +203,8 @@
       <section id="Pink" class="warna" tabindex="-1">
         <h1>Pink</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/pink.png"
             alt="Pink"
             class="color-img" />
@@ -204,7 +222,8 @@
       <section id="Orange" class="warna" tabindex="-1">
         <h1>Orange</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/orange.png"
             alt="Orange"
             class="color-img" />
@@ -223,7 +242,8 @@
       <section id="Silver" class="warna" tabindex="-1">
         <h1>Silver</h1>
         <blockquote>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src="assets/images/colors/silver.png"
             alt="Silver"
             class="color-img" />
@@ -272,13 +292,18 @@
         href="https://github.com/nirwanadoteth"
         target="_blank"
         rel="noopener noreferrer">
-        <img loading="lazy" src="assets/images/socials/github.svg" alt="GitHub" class="icon" />
+        <img
+          loading="lazy"
+          src="assets/images/socials/github.svg"
+          alt="GitHub"
+          class="icon" />
       </a>
       <a
         href="https://www.instagram.com/i.rkham"
         target="_blank"
         rel="noopener noreferrer">
-        <img loading="lazy"
+        <img
+          loading="lazy"
           src="assets/images/socials/instagram.svg"
           alt="Instagram"
           class="icon" />
@@ -287,7 +312,8 @@
         href="https://linkedin.com/in/m-irkham-n"
         target="_blank"
         rel="noopener noreferrer">
-        <img loading="lazy"
+        <img
+          loading="lazy"
           src="assets/images/socials/linkedin.svg"
           alt="LinkedIn"
           class="icon" />
@@ -296,7 +322,8 @@
         href="https://twitter.com/nirwana_eth"
         target="_blank"
         rel="noopener noreferrer">
-        <img loading="lazy"
+        <img
+          loading="lazy"
           src="assets/images/socials/twitter.svg"
           alt="Twitter"
           class="icon" />
