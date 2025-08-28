@@ -2,7 +2,7 @@
 
 **Always follow these instructions first. Only search for additional information or run bash commands if the information here is incomplete or found to be in error.**
 
-Favorite Colors is a static HTML/CSS website (no JavaScript required) that showcases information about different colors and their psychological meanings. The site is a single-page app that uses anchor links and CSS (:target and fallbacks) to navigate between color sections.
+Favorite Colors is a static HTML/CSS website (no JavaScript required) that showcases information about different colors and their psychological meanings. The site is a single-page site that uses anchor links and CSS (:target and fallbacks) to navigate between color sections.
 
 ## Working Effectively
 
@@ -35,7 +35,7 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
    - Verify each section displays correctly with color image and description
    - Test the Profile section displays student information table
    - Test Home link returns to the welcome page
-   - Confirm the active state highlights only the current section in both desktop and mobile nav
+   - Confirm the active state highlights only the current section in both desktop and mobile nav (CSS-only; no aria-current scripting)
 
 2. **Responsive Design Test**:
    - Resize browser window to mobile width (< 600px)
@@ -78,14 +78,14 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 ## Technology Stack
 - **Frontend**: Pure HTML5 and CSS3 (JS-free)
 - **CSS Framework**: None (custom styles only)
-- **Navigation**: Anchor links with CSS `:target` and responsive `<details>/<summary>` dropdown; includes CSS fallbacks for older browsers
+- **Navigation**: Anchor links with CSS `:target` and responsive `<details>/<summary>` dropdown. Active link highlighting is handled purely in CSS (for example, via `:target` and container `:has(...)` rules). Do not rely on dynamic `aria-current` updates because there's no JavaScript.
 - **No Build Process**: Static files served directly
 - **No Dependencies**: No package.json, npm, or build tools required
 
 ## Important Notes
 - **No JavaScript required** - navigation and theming are implemented in CSS
 - **All content is in a single HTML file** - no routing or multiple pages
-- **Navigation is driven by anchors + CSS `:target`**; mobile dropdown uses native `<details>/<summary>`
+- **Navigation is driven by anchors + CSS `:target`**; mobile dropdown uses native `<details>/<summary>`. Remove any static `aria-current` attributes from markup and rely on CSS-only highlighting for accessibility/fallbacks.
 - **Responsive design uses CSS media queries** - mobile-friendly layout
 
 ## Timing Expectations
