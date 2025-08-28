@@ -1,6 +1,6 @@
 *,
-::after,
-::before {
+*::after,
+*::before {
   box-sizing: border-box;
 }
 :root {
@@ -229,7 +229,7 @@ ul.desktop-nav li a.btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
-ul.desktop-nav li a.btn:focus {
+ul.desktop-nav li a.btn:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
@@ -247,7 +247,7 @@ ul.desktop-nav li a.btn:focus {
   max-width: 300px;
   margin: 0 auto;
   position: relative;
-  z-index: 100001;
+  z-index: 10;
 }
 .mobile-nav > summary.dropdown-toggle {
   font-weight: 500;
@@ -323,6 +323,7 @@ body:has(:target:not(#Home)) .dropdown-text [data-name="Home"] {
   pointer-events: auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  z-index: 20;
 }
 .dropdown-item {
   font-weight: 500;

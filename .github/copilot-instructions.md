@@ -2,7 +2,7 @@
 
 **Always follow these instructions first. Only search for additional information or run bash commands if the information here is incomplete or found to be in error.**
 
-Favorite Colors is a static HTML/CSS website (no JavaScript required) that showcases information about different colors and their psychological meanings. The site is a single-page site that uses anchor links and CSS (:target and fallbacks) to navigate between color sections.
+Favorite Colors is a static HTML/CSS website (no JavaScript) that showcases information about different colors and their psychological meanings. It’s a single-page website that uses anchor links and CSS (:target with fallbacks) to navigate between color sections.
 
 ## Working Effectively
 
@@ -28,7 +28,7 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 ## Validation
 
 ### Always Test These Scenarios After Making Changes
-1. **Navigation Test** (modern browsers with CSS :has support):
+1. **Navigation Test** (modern browsers with CSS :has support; without :has, labels/active states may not update but navigation still works):
    - Start local server: `python3 -m http.server 8000`
    - Open browser to `http://localhost:8000`
    - Click each color link (Blue, Red, Purple, Green, Black, White, Yellow, Pink, Orange, Silver)
@@ -40,7 +40,7 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 2. **Responsive Design Test**:
    - Resize browser window to mobile width (< 600px)
    - Verify desktop navigation hides and mobile dropdown (<details>/<summary>) appears
-   - Verify the mobile summary label updates to the current section name
+   - Verify the mobile summary label updates to the current section name (requires :has; on older browsers, the label remains “Home”)
    - Verify text remains readable and images scale properly
 
 3. **Image Loading Test**:
@@ -65,6 +65,8 @@ Favorite Colors is a static HTML/CSS website (no JavaScript required) that showc
 3. Add the color image to `assets/images/colors/newcolor.png` (square PNG recommended)
 4. Optional: Add gradient styles in `assets/css/style.css` for hover/active states matching other colors (desktop `.btn`, mobile `.dropdown-item`, and active state rules)
 5. Test navigation to the new section works on desktop and mobile; verify the summary label updates
+6. Add active-state highlight rules mirroring other colors:
+   - `body:has(#NewColor:target) ul.desktop-nav li a.btn[href="#NewColor"], ... { ... }`
 
 ### Modifying Existing Content
 1. **Color Descriptions**: Edit the `<blockquote>` content within each color section in `index.html`
